@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resize App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="container">
+    <div class="card">
+
+        <h1>📸 Image Resizer</h1>
+        <p class="subtitle">Upload & Auto Resize Images</p>
+
+        <!-- 🔥 DROP ZONE -->
+        <div class="drop-zone" id="dropZone">
+
+            <p class="drop-text">⬆ Drag & Drop Image Here</p>
+            <p class="browse-text">
+                or <span onclick="document.getElementById('fileInput').click()">browse</span>
+            </p>
+
+            <!-- ✅ FILE NAME DISPLAY -->
+            <p id="fileName" style="margin-top:10px; font-size:14px; color:#00f2fe;"></p>
+
+            <!-- ✅ FIX: ADD onchange -->
+            <input 
+                type="file" 
+                id="fileInput" 
+                accept="image/*" 
+                hidden 
+                onchange="handleFileSelect(event)"
+            >
+
+            <button class="select-btn" onclick="document.getElementById('fileInput').click()">
+                Select Image
+            </button>
+
+        </div>
+
+        <button onclick="uploadImage()">Upload</button>
+
+        <p id="status"></p>
+
+        <div id="result"></div>
+
+        <p class="footer">⚡ Powered by AWS Lambda + S3</p>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
